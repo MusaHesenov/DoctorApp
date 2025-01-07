@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
-import com.example.doctorsapp.Activity.DetailActivity
 import com.example.doctorsapp.Model.DoctorModel
 import com.example.doctorsapp.databinding.ViewholderNearbyDoctorBinding
 

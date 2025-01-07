@@ -12,29 +12,17 @@ import com.example.doctorsapp.R
 import com.example.doctorsapp.ViewModel.MainViewModel
 import com.example.doctorsapp.databinding.ActivityMainBinding
 import com.example.doctorsapp.databinding.ActivitySplashBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
-    private lateinit var binding: ActivityMainBinding
-    private val viewModel = MainViewModel()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        initNearByDoctor()
+        setContentView(R.layout.activity_main)
 
     }
 
-    private fun initNearByDoctor() {
-        binding.apply {
-            progressBar.visibility = View.VISIBLE
-            viewModel.loadDoctors().observe(this@MainActivity) {
-                topView.layoutManager =
-                    LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
-                topView.adapter = NearDoctorsAdapter(it)
-                progressBar.visibility = View.GONE
-            }
-        }
-    }
+
 }
