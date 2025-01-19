@@ -33,7 +33,9 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getBundle()
+
     }
+
 
     private fun getBundle() {
         arguments?.let {

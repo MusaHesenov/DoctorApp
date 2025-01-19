@@ -3,10 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id("kotlin-parcelize")
-    id("com.google.devtools.ksp")
+    //id("com.google.devtools.ksp") version "1.9.0-1.0.13" // Çakışan sürümü kaldırın veya uyumlu hale getirin
     id("androidx.navigation.safeargs")
     id("dagger.hilt.android.plugin")
-    id("com.google.dagger.hilt.android")
     alias(libs.plugins.google.gms.google.services)
 }
 
@@ -56,7 +55,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Thirty part libraries
+    // Third-party libraries
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.tbuonomo:dotsindicator:5.0")
     implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
@@ -72,15 +71,9 @@ dependencies {
 
     // Life Cycle Arch
     val lifecycleVersion = "2.8.4"
-
-
-    // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
-    // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
-
-    // Annotation processor
-    ksp("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
+    //ksp("androidx.lifecycle:lifecycle-compiler:$lifecycleVersion")
 
     // Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.47")

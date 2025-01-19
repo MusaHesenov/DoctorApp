@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doctorsapp.Adapter.NearDoctorsAdapter
+import com.example.doctorsapp.Model.DoctorModel
 import com.example.doctorsapp.R
 import com.example.doctorsapp.ViewModel.MainViewModel
 import com.example.doctorsapp.databinding.FragmentHomeBinding
@@ -19,6 +20,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: MainViewModel
+    private val nearDoctorsAdapter by lazy { NearDoctorsAdapter(mutableListOf()) }
 
 
     override fun onCreateView(
@@ -33,7 +35,15 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initNearByDoctor()
+        setupNearDoctorsAdapter()
 
+    }
+
+    private fun setupNearDoctorsAdapter() {
+        binding.topView.apply {
+            adapter = nearDoctorsAdapter
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        }
     }
 
     private fun  initNearByDoctor() {
